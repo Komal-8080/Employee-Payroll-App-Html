@@ -22,22 +22,17 @@ window.addEventListener('DOMContentLoaded', (event) => {
     });
 });
 
-function save() {
-    console.log("In SAVE");
+const save = ()  => {
     try {
         let employeePayrollData = createEmployeePayroll();
-        console.log("My DAta",employeePayrollData);
-        createAndUpdateStorage(employeePayrollData);
-    } catch(e){
-        console.log(e);
-      //  return;
+    } catch(e) {
+         return;
     }
 }
 
 const createEmployeePayroll = () => {
     let employeePayrollData = new EmployeePayrollData();
-    console.log("Created:");
-   /* try {
+    try {
         employeePayrollData.name = getInputValueById('#name');
     } catch (e) {
         setTextValue('.text-error', e);
@@ -50,16 +45,15 @@ const createEmployeePayroll = () => {
     employeePayrollData.note = getInputValueById('#notes');
     let date = getInputValueById('#day') +" "+getInputValueById('#month')+" "+getInputValueById('#year');
     employeePayrollData.date = Date.parse(date);
-    console.log(employeePayrollData.toString());
     alert(employeePayrollData.toString());
-    return employeePayrollData;*/
+    return employeePayrollData;
 }
 
 const  getSelectedValues = (propertyValue) => {
     let allItems = document.querySelectorAll(propertyValue);
     let selItems= [];
     allItems.forEach(item => {
-        if(item.checked) selItems.push(items.value);
+        if(item.checked) selItems.push(item.value);
     });
     return selItems;
 }
