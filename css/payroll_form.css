@@ -81,7 +81,7 @@ body {
 
 label {
     padding: 12px 12px 12px 0;
-    dispaly: inline-block;
+    display: inline-block;
 }
 
 .text {
@@ -201,4 +201,11 @@ select {
         flex-direction: column-reverse;
         align-items: flex-start;
     }
+}
+
+error-output {
+    margin-left: 10px;
+    font-size: 12px;
+    font-style: italic;
+    color: red;
 }
