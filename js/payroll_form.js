@@ -20,6 +20,17 @@ window.addEventListener('DOMContentLoaded', (event) => {
     salary.addEventListener('input', function() {
         output.textContent=salary.value;
     });
+
+    const startDate=document.querySelector('#startDate');
+    const dateError=document.querySelector('.date-error');
+    startDate.addEventListener('input', function() {
+        try {
+            (new EmployeePayrollData()).startDate = startDate.value;;
+            dateError.textContent="";
+        }catch (e) {
+            dateError.textContent=e;
+        }
+    });
 });
 
 const save = ()  => {
@@ -56,7 +67,12 @@ const createEmployeePayroll = () => {
     employeePayrollData.salary = getInputValueById('#salary');
     employeePayrollData.note = getInputValueById('#notes');
     let date = getInputValueById('#day') +" "+getInputValueById('#month')+" "+getInputValueById('#year');
-    employeePayrollData.date = Date.parse(date);
+    try {
+        employeePayrollData.date = Date.parse(date);
+    } catch (e) {
+        setTextValue('.text-error', e);
+        throw e;
+    }
     alert(employeePayrollData.toString());
     return employeePayrollData;
 }
@@ -89,7 +105,7 @@ const resetForm = () => {
     setValue('#notes','');
     setValue('#day','1');
     setValue('#month','January');
-    setValue('#year','2020');
+    setValue('#year','2021');
 }
 
 const unsetSelectedValues = (propertyValue) => {

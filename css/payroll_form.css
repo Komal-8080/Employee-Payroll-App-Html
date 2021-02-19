@@ -40,7 +40,7 @@ body {
 /* UC 2 */
 .form-content {
     min-height: calc(100% - 80px);
-    background-color: white;
+    background-color: #f7f7f7;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -48,8 +48,9 @@ body {
 }
 
 .form {
-    width:65%;
+    width: 65%;
     margin-top: 6%;
+    margin-left: 15%;
     padding: 44px 60px;
     background: #ffffff 0% 0% no-repeat  padding-box;
     box-shadow: 0px 3px 6px #00000029;
