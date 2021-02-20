@@ -31,39 +31,18 @@
             </div>
             <a href="../pages/payroll_form.html" class="add-button">
             <img src="../assets/icons/add-24px.svg" alt="">ADD USER</a>
-        </div>        
-    
-    <!-- header-content end -->
-    <div class="table-main">
-    <table id="display" class="table">
+        </div> <!-- header-content end -->
 
         <!--UC3--> 
-        <tr>
-            <th></th>
-            <th>Name</th>
-            <th>Gender</th>
-            <th>Department</th>
-            <th>Salary</th>
-            <th>Start Date</th>
-            <th>Actions</th>
-        </tr>
-         <tr>
-            <td><img class ="profile" alt="" src="../assets/profile-images/Ellipse -1.png">
-            </td>
-            <td>Komal</td>
-            <td>Female</td>
-            <td>
-                <div class='dept-label'>HR</div>
-                <div class='dept-label'>Finance</div>
-            </td>
-            <td>300000</td>
-            <td>1 Nov 2020</td>
-            <td>
-                <img id="1" onclick="remove(this)" alt="delete" src="../assets/icons/delete-black-18dp.svg">
-                <img id="1" alt="edit" onclick="update(this)" src="../assets/icons/create-black-18dp.svg">
-            </td>
-        </tr> 
-    </table>
-</div>
+        <div class="table-main">        
+            <table id="table-display" class="table"></table>
+        </div><!-- table-main-end -->
+    </div>  <!-- main-content-end -->
+
+    <!-- UC4 -->
+    <script src="../js/home.js"></script>
+    <script src="../js/utility.js"></script>
+    <script src="../js/siteProperties.js"></script>
+    <script src="../js/EmployeePayroll.js"></script>
 </body>
 </html>
