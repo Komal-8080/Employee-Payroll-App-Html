@@ -4,12 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/home.css">
-    <link 
-        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200:0,300:0,400;0,600;1,500&dispaly=swap"
-        rel="stylesheet">
     <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600$dispaly=swap"
-        rel="stylesheet">
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,600;1,500&display=swap"
+    rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap" rel="stylesheet">
     <title>Employee Payroll App</title>
     <script defer src="../js/home.js"></script>
 </head>
@@ -33,7 +31,39 @@
             </div>
             <a href="../pages/payroll_form.html" class="add-button">
             <img src="../assets/icons/add-24px.svg" alt="">ADD USER</a>
-        </div>
-    </div>
+        </div>        
+    
+    <!-- header-content end -->
+    <div class="table-main">
+    <table id="display" class="table">
+
+        <!--UC3--> 
+        <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Department</th>
+            <th>Salary</th>
+            <th>Start Date</th>
+            <th>Actions</th>
+        </tr>
+         <tr>
+            <td><img class ="profile" alt="" src="../assets/profile-images/Ellipse -1.png">
+            </td>
+            <td>Komal</td>
+            <td>Female</td>
+            <td>
+                <div class='dept-label'>HR</div>
+                <div class='dept-label'>Finance</div>
+            </td>
+            <td>300000</td>
+            <td>1 Nov 2020</td>
+            <td>
+                <img id="1" onclick="remove(this)" alt="delete" src="../assets/icons/delete-black-18dp.svg">
+                <img id="1" alt="edit" onclick="update(this)" src="../assets/icons/create-black-18dp.svg">
+            </td>
+        </tr> 
+    </table>
+</div>
 </body>
 </html>
