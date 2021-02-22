@@ -48,13 +48,13 @@ class EmployeePayrollData {
                 this._startDate=employeeDate;
             }
             else throw "Date is invalid";
-        }       
+        } 
     }
 
     //method
     toString() {
         const options = { year:'numeric', month:'long', day:'numeric'};
-        const empDate = !this.startDate ? "undefined":
+        const empDate = this.startDate===undefined?"undefined":
                         this.startDate.toLocaleDateString("en-US", option);
         return "id=" +this.id+", name='"+this.name+", gender='" +this.gender+
                 ", profilePic='"+this.profilePic+ ", department=" +this.department+

@@ -21,21 +21,12 @@ window.addEventListener('DOMContentLoaded', (event) => {
         output.textContent=salary.value;
     });
 
-    const startDate=document.querySelector('#startDate');
-    const dateError=document.querySelector('.date-error');
-    startDate.addEventListener('input', function() {
-        try {
-            (new EmployeePayrollData()).startDate = startDate.value;;
-            dateError.textContent="";
-        }catch (e) {
-            dateError.textContent=e;
-        }
-    });
-});
+ });
 
 const save = ()  => {
     try {
         let employeePayrollData = createEmployeePayroll();
+        console.log(employeePayrollData);
         createAndUpdateStorage(employeePayrollData);
     } catch(e) {
          return;
@@ -44,6 +35,7 @@ const save = ()  => {
 
 function createAndUpdateStorage(employeePayrollData) {
     let employeePayrollList = JSON.parse(localStorage.getItem("EmployeePayrollList"));
+    console.log(employeePayrollList);
     if (employeePayrollList != undefined) {
         employeePayrollList.push(employeePayrollData);
     }else {
@@ -68,11 +60,17 @@ const createEmployeePayroll = () => {
     employeePayrollData.note = getInputValueById('#notes');
     let date = getInputValueById('#day') +" "+getInputValueById('#month')+" "+getInputValueById('#year');
     try {
-        employeePayrollData.date = Date.parse(date);
+         employeePayrollData.date = Date.parse(date);
     } catch (e) {
-        setTextValue('.text-error', e);
-        throw e;
+      setTextValue('.text-error', e);
+          throw e;
     }
+    //  var year = document.querySelector('#year').value;
+    //      var month = document.querySelector('#month').value;
+    //      var day = document.querySelector('#day').value;
+    //      var startDate = new Date(year, month, day);
+    //      employeePayrollData.startDate= year+month+day;
+    //     console.log(startDate);
     alert(employeePayrollData.toString());
     return employeePayrollData;
 }
@@ -104,7 +102,7 @@ const resetForm = () => {
     setValue('#salary','');
     setValue('#notes','');
     setValue('#day','1');
-    setValue('#month','January');
+    setValue('#month','March');
     setValue('#year','2021');
 }
 
