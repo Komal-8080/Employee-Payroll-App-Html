@@ -7,12 +7,35 @@ window.addEventListener('DOMContentLoaded', (event) => {
             return;
         }
         try {
-            (new EmployeePayrollData()).name = name.value;;
+            (new EmployeePayrollData()).name = name.value;
             textError.textContent="";
         }catch (e) {
             textError.textContent=e;
         }
     });
+   
+    const day = document.querySelector('#day');
+    const year = document.querySelector('#year');
+    const month = document.querySelector('#month');
+    const dateError = document.querySelector('.date-error');
+    [day, month, year].forEach(item => item.addEventListener('input', function () {
+        if (month.value == 1) {
+            if (isLeapYear(year.value)) {
+                if (day.value > 29) {
+                    dateError.textContent = "Invalid Date!";
+                } else dateError.textContent = "";
+            } else {
+                if (day.value > 28) {
+                    dateError.textContent = "Invalid Date!";
+                } else dateError.textContent = "";
+            }
+        }
+        if (month.value == 3 || month.value == 5 || month.value == 8 || month.value == 10) {
+            if (day.value > 30) {
+                dateError.textContent = "Invalid Date!";
+            } else dateError.textContent = "";
+        }
+    }));
 
     const salary = document.querySelector('#salary');
     const output = document.querySelector('.salary-output');
@@ -20,6 +43,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
     salary.addEventListener('input', function() {
         output.textContent=salary.value;
     });
+
+    checkForUpdate();
 
  });
 
@@ -35,7 +60,6 @@ const save = ()  => {
 
 function createAndUpdateStorage(employeePayrollData) {
     let employeePayrollList = JSON.parse(localStorage.getItem("EmployeePayrollList"));
-    console.log(employeePayrollList);
     if (employeePayrollList != undefined) {
         employeePayrollList.push(employeePayrollData);
     }else {
@@ -59,18 +83,11 @@ const createEmployeePayroll = () => {
     employeePayrollData.salary = getInputValueById('#salary');
     employeePayrollData.note = getInputValueById('#notes');
     let date = getInputValueById('#day') +" "+getInputValueById('#month')+" "+getInputValueById('#year');
-    try {
-         employeePayrollData.date = Date.parse(date);
-    } catch (e) {
-      setTextValue('.text-error', e);
-          throw e;
-    }
-    //  var year = document.querySelector('#year').value;
-    //      var month = document.querySelector('#month').value;
-    //      var day = document.querySelector('#day').value;
-    //      var startDate = new Date(year, month, day);
-    //      employeePayrollData.startDate= year+month+day;
-    //     console.log(startDate);
+    employeePayrollData.date = date;
+    let employeePayrollList1 = JSON.parse(localStorage.getItem("EmployeePayrollList"));
+        if (employeePayrollList1 == undefined)
+            employeePayrollData.id = 1;
+        else employeePayrollData.id = employeePayrollList1.length + 1;
     alert(employeePayrollData.toString());
     return employeePayrollData;
 }
@@ -102,7 +119,7 @@ const resetForm = () => {
     setValue('#salary','');
     setValue('#notes','');
     setValue('#day','1');
-    setValue('#month','March');
+    setValue('#month','January');
     setValue('#year','2021');
 }
 
@@ -121,4 +138,9 @@ const setTextValue = (id, value) => {
 const setValue = (id, value ) => {
     const element = document.querySelector(id);
     element.value = value;
+}
+
+const setSelectedIndex = (id, index) => {
+    const element = document.querySelector(id);
+    element.selectedIndex = index;
 }

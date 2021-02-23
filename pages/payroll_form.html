@@ -8,6 +8,8 @@
     <title>Employee payroll form</title>
     <script defer src="../js/payroll_form.js"></script>
     <script defer src="../js/EmployeePayroll.js"></script>
+    <script defer src="../js/siteProperties.js"></script>
+    <script defer src="../js/utility.js"></script>
 </head>
 <body>
     <!--UC1-->
@@ -146,8 +148,8 @@
                     <option value="2017">2017</option>
                     <option value="2016">2016</option>
                 </select>
+                <error-output class="date-error" for="startDate"></error-output>
             </div>
-            <error-output class="date-error" for="startDate"></error-output>
         </div>
 
         <!--UC6-->
