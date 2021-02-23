@@ -24,7 +24,7 @@
     </header> 
     
     <div id="formId" class="form-content"></div>
-    <form class="form" action="#" onreset="resetForm()" onsubmit="save()"> 
+    <form class="form" action="#"  onreset="resetForm()" onsubmit="save(event)"> 
     <div class="form-head"> Employee Payroll form</div>
         <!--UC2-->         
         <div class="row-content">
@@ -92,7 +92,7 @@
         <!--UC5-->
         <div class="row-content">
             <label class="label text" for="startDate">Start Date</label>
-            <div>
+            <div id="date">
                 <select id="day" name="Day">
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -147,9 +147,9 @@
                     <option value="2018">2018</option>
                     <option value="2017">2017</option>
                     <option value="2016">2016</option>
-                </select>
-                <error-output class="date-error" for="startDate"></error-output>
+                </select>                
             </div>
+            <error-output class="date-error" for="startDate"></error-output>
         </div>
 
         <!--UC6-->
